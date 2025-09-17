@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+repo_dump.txt
+
 # Distribution / packaging
 .Python
 build/
