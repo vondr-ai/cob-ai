@@ -11,7 +11,7 @@ from .models import SearchResponse, SearchResult, SyncStartResponse, SyncStatusR
 class COB:
 
     apikey: str | None = os.getenv("COB_APIKEY")
-    apiurl: str = "https://api.cob.vondr.ai"
+    apiurl: str = "https://www.api.cob.vondr.ai"
 
     def search(self, question: str, top_n: int = 8) -> SearchResponse:
         """Search for documents based on a query."""
