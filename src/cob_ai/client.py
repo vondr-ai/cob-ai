@@ -6,6 +6,7 @@ import threading
 import requests
 from .models import SearchResponse, SearchResult, SyncStartResponse, SyncStatusResponse, FailedDocumentInfo
 
+from urllib.parse import quote
 
 @define
 class COB:
@@ -21,8 +22,9 @@ class COB:
         
         # top_n is always sent as a required parameter
         params = {"top_n": top_n}
-        
-        response = requests.get(self.apiurl + '/search/' + question, headers=headers, params=params)
+        encoded_question = quote(question, safe='')
+
+        response = requests.get(self.apiurl + '/search/' + encoded_question, headers=headers, params=params)
         response.raise_for_status()  # Raise an exception for bad status codes
         
         results = response.json()
